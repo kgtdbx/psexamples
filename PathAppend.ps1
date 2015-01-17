@@ -17,7 +17,8 @@ try
     
     #No exit then update registry and display new path from registry to confirm
     Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH –Value "$oldPath;$newPath"
-    (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path | Write-Host
+    #Updating PS Environment Path variable
+    $env:Path=(Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path
    }
 Catch {$_}
 
