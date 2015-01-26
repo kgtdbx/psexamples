@@ -5,3 +5,4 @@ Assembly Microsoft.Office.Interop.OneNote
 
 
 [Reflection.Assembly]::LoadWithPartialName("Microsoft.Office.Interop.OneNote")
+$OneNote = [Microsoft.Office.Interop.OneNote.]
